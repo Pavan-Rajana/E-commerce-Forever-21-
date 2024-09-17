@@ -1,0 +1,7 @@
+# Ensure all text files use LF line endings
+* text=auto
+
+# Handle specific file types
+*.js eol=lf
+*.json eol=lf
+*.gitignore eol=lf
