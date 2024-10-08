@@ -1,11 +1,11 @@
 import Hero from "../components/Hero"
-// import LatestCollection from "../context/LatestCollection"
+import LatestCollection from "../components/LatestCollections"
 
 const Home = () => {
     return (
         <div>
             <Hero />
-            {/* <LatestCollection /> */}
+            <LatestCollection />
         </div>
     )
 }
