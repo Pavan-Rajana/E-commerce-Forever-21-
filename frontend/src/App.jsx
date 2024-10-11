@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import { Home, Collection, Cart, Contact, About, Login, Orders, PlaceOrder, Product } from "./paths"
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
+import SearchBar from "./components/SearchBar"
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
 
       <Navbar />
       {/*  Here mounting the navbar above the routes bcoz it should be available to all routes*/}
+      <SearchBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection />} />
