@@ -10,7 +10,7 @@ const OurPolicy = () => {
             </div>
             <div>
                 <img src={f_assets.quality_icon} className="w-12 m-auto mb-5" alt="" />
-                <p className="font-semibold">& days return policy</p>
+                <p className="font-semibold">7 days return policy</p>
                 <p className="text-gray-400">We Provide 7 days free return policy</p>
             </div>
             <div>

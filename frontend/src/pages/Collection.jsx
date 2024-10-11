@@ -6,7 +6,7 @@ import ProductItem from "../components/ProductItem"
 
 const Collection = () => {
 
-    const { products } = useContext(ShopContext)
+    const { products, search, showSearch } = useContext(ShopContext)
     const [showFilter, setShowFilter] = useState(false)
     const [filterProducts, setFilterProducts] = useState([])
     const [category, setCategory] = useState([])
@@ -34,6 +34,12 @@ const Collection = () => {
 
     const applyFilter = () => {
         let productsCopy = products.slice()
+
+        if (showSearch && search) {
+            productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+
+        }
+
         if (category.length > 0) {
             productsCopy = productsCopy.filter(item => category.includes(item.category))
         }
@@ -65,7 +71,7 @@ const Collection = () => {
 
     useEffect(() => {
         applyFilter()
-    }, [category, subCategory])
+    }, [category, subCategory, search, showSearch])
 
 
     useEffect(() => {
@@ -121,7 +127,7 @@ const Collection = () => {
                 <div className="flex justify-between text-base sm:text-2xl mb-4">
                     <Title text1={"ALL"} text2={"COLLECTIONS"} />
                     {/* Products */}
-                    <select onChange={(e) => setSortType(e.target.value)} className="border-2 border-gray-300 text-sm px-2">
+                    <select onChange={(e) => setSortType(e.target.value)} className="border-2 sm:hidden md:block  border-gray-300 text-sm px-2">
                         <option value="relevant">Sort By: Relevant</option>
                         <option value="low-high">Sort By: Low to High</option>
                         <option value="high-low">Sort By : High to Low</option>
