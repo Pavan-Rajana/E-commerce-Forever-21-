@@ -2,12 +2,13 @@ import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ShopContext } from "../context/ShopContext"
 import { f_assets } from "../assets/frontend_assets/assets"
+import RelatedProducts from "../components/RelatedProducts"
 
 const Product = () => {
 
     const { productId } = useParams()
     // console.log(productId);
-    const { products, currency } = useContext(ShopContext)
+    const { products, currency, addToCart } = useContext(ShopContext)
     const [productData, setProductData] = useState(false)
     const [image, setImage] = useState()
     const [size, setSize] = useState("")
@@ -16,7 +17,7 @@ const Product = () => {
         products.map((item) => {
             if (item._id === productId) {
                 setProductData(item)
-                console.log(item)
+                // console.log(item)
                 setImage(item.image[0])
                 return null
             }
@@ -68,7 +69,7 @@ const Product = () => {
                             }
                         </div>
                     </div>
-                    <button className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700">ADD TO CART</button>
+                    <button className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700" onClick={() => addToCart(productData._id, size)}>ADD TO CART</button>
                     <hr className="mt-8 sm:w-4/5" />
                     <div className="text-xs sm:text-sm text-gray-500 mt-5 flex flex-col gap-1">
                         <p>100% Original Product</p>
@@ -76,9 +77,9 @@ const Product = () => {
                         <p>Easy return and exchange policy within 7 days</p>
                     </div>
                 </div>
-            </div>
+            </div >
             {/* ----- Description & Review Section */}
-            <div className="mt-20">
+            <div className="mt-20" >
                 <div className="flex">
                     <b className="border px-5 py-3 text-sm">Description</b>
                     <p className="border px-5 py-3 text-sm">Review (122)</p>
@@ -87,13 +88,14 @@ const Product = () => {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel cupiditate quidem dolor quisquam nisi reprehenderit provident facilis assumenda tempora vitae, iste, laudantium consequatur sit mollitia magnam animi eveniet et ullam.</p>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae nihil eveniet inventore harum fugiat, officia hic nemo amet, exercitationem, laboriosam corrupti? Iusto animi recusandae praesentium accusantium illum adipisci et!</p>
                 </div>
-            </div>
+            </div >
 
             {/* ---- Display Related Products  */}
-            
+            < RelatedProducts category={productData.category} subCategory={productData.subCategory} />
 
-        </div>
+        </div >
     ) : <div className="opacity-0"></div>
 }
 
 export default Product
+

@@ -37,7 +37,6 @@ const Collection = () => {
 
         if (showSearch && search) {
             productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
-
         }
 
         if (category.length > 0) {
@@ -137,7 +136,7 @@ const Collection = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
                     {
                         filterProducts.map(({ _id, image, price, name }, index) => (
-                            <ProductItem key={index} id={_id} name={name} image={image} price={price} />
+                            <ProductItem key={index} id={_id} name={name} image={image} price={price} onClick={`/products/${_id}`} />
                         ))
                     }
                 </div>
