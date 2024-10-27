@@ -40,7 +40,6 @@ const ShopContextProvider = (props) => {
         setCartItems(cartData)
     }
 
-
     const getCartCount = () => {
         let totalCount = 0 // Step 1: Initialize a counter to keep track of the total number of items
         // Step 2: Loop over each item in the cart
@@ -63,12 +62,10 @@ const ShopContextProvider = (props) => {
         return totalCount
     }
 
-
     useEffect(() => {
         // console.log(cartItems)
 
     }, [cartItems])
-
 
     const updateQuantity = async (itemId, size, quantity) => {
         let cartData = structuredClone(cartItems)
@@ -100,9 +97,6 @@ const ShopContextProvider = (props) => {
 
         return totalAmount; // Return the final calculated total
     };
-
-
-
 
     const value = {
         products, currency, delivery_fee,
