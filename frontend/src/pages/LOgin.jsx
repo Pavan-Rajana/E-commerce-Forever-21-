@@ -21,7 +21,7 @@ const Login = () => {
                 <input type="password" className="w-full px-3 py-2 border border-gray-600 rounded-sm" placeholder="Confirm Password" required />
             )}
             <div className="w-full cursor-pointer flex justify-between text-md mt-[8px]">
-                <p className="underline">Forgot your password?</p>
+                <p className="hover:underline">Forgot your password?</p>
                 {
                     currentState === "login"
                         ? <p onClick={() => { setCurrentState('Sign Up') }}>Create Account</p> :
