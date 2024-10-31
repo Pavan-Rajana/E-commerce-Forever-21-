@@ -24,11 +24,11 @@ const Login = () => {
                 <p className="hover:underline">Forgot your password?</p>
                 {
                     currentState === "login"
-                        ? <p onClick={() => { setCurrentState('Sign Up') }}>Create Account</p> :
-                        <p onClick={() => { setCurrentState("login") }}>Login Here</p>
+                        ? <p className="hover:underline" onClick={() => { setCurrentState('Sign Up') }}>Create Account</p> :
+                        <p className="hover:underline" onClick={() => { setCurrentState("login") }}>Login Here</p>
                 }
             </div>
-            <button className="bg-black text-white px-8 py-1.5 rounded-sm">{currentState === 'login' ? 'Sign In' : 'Sign Up'}</button>
+            <button className="bg-black text-white px-8 py-1.5 rounded-sm hover:shadow-xl">{currentState === 'login' ? 'Sign In' : 'Sign Up'}</button>
         </form>
     )
 }
