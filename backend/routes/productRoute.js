@@ -9,8 +9,9 @@ import {upload} from "../middleware/multer.js"
 
 export const productRouter = express.Router()
 
+productRouter.get("/list-products", listProduct)
 productRouter.post(
-	"/add-product",
+	"/add-products",
 	upload.fields([
 		{name: "image1", maxCount: 1},
 		{name: "image2", maxCount: 1},
@@ -19,6 +20,5 @@ productRouter.post(
 	]),
 	addProduct
 )
-productRouter.post("/remove-product", removeProduct)
-productRouter.post("/single-product", singleProduct)
-productRouter.get("/list-products", listProduct)
+productRouter.post("/remove-products", removeProduct)
+productRouter.post("/single-products", singleProduct)
