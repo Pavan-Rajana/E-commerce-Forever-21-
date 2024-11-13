@@ -9,4 +9,4 @@ export const userRouter = express.Router()
 
 userRouter.post("/register", registerUser)
 userRouter.post("/login", loginUser)
-userRouter.post("/login", adminLogin)
+userRouter.post("/admin", adminLogin)
