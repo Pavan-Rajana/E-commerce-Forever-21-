@@ -1,5 +1,6 @@
 import {v2 as cloudinary} from "cloudinary"
 import {productModel} from "../models/productModel.js"
+import {json} from "express"
 
 //* add products
 export const addProduct = async (req, res) => {
@@ -38,7 +39,8 @@ export const addProduct = async (req, res) => {
 			subCategory,
 			price: Number(price),
 			bestseller: bestseller === "true" ? true : false,
-			sizes: JSON.parse(sizes),
+			// sizes: JSON.parse(sizes),
+			sizes: sizes ? JSON.parse(sizes) : undefined,
 			image: imagesUrl.length ? imagesUrl : undefined,
 			Date: Date.now(),
 		}
