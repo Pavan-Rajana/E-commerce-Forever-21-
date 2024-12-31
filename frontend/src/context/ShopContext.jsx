@@ -101,11 +101,16 @@ const ShopContextProvider = (props) => {
         }
 
         return totalAmount; // Return the final calculated total
-    };
+    }
+
+    const clearCart = () => {
+        setCartItems({})
+        toast.success("cart has been cleared")
+    }
 
     const value = {
         products, currency, delivery_fee,
-        search, setSearch, showSearch, setShowSearch, cartItems, addToCart, getCartCount, updateQuantity, getCartAmount, navigate
+        search, setSearch, showSearch, setShowSearch, cartItems, addToCart, getCartCount, updateQuantity, getCartAmount, navigate, clearCart
     }
 
     return (

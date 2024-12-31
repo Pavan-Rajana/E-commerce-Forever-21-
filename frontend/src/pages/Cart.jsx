@@ -6,7 +6,7 @@ import CartTotal from "../components/CartTotal"
 
 const Cart = () => {
 
-    const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext)
+    const { products, currency, cartItems, clearCart, updateQuantity, navigate } = useContext(ShopContext)
     const [cartData, setCartData] = useState([])
 
     useEffect(() => {
@@ -26,6 +26,11 @@ const Cart = () => {
         setCartData(tempData)
         // console.log(tempData)
     }, [cartItems])
+
+    const handleCheckout = () => {
+        clearCart()
+        navigate("/place-order")
+    }
 
     return (
         <div className="border-t py-14">
@@ -59,7 +64,7 @@ const Cart = () => {
                 <div className="w-full sm:w-[450px]">
                     <CartTotal />
                     <div className="w-full text-end">
-                        <button onClick={() => navigate("/place-order")} className="bg-black text-white p-2 px-7 rounded-sm text-xs my-8 ">PROCEED TO CHECKOUT</button>
+                        <button onClick={handleCheckout} className="bg-black text-white p-2 px-7 rounded-sm text-xs my-8 ">PROCEED TO CHECKOUT</button>
                     </div>
                 </div>
             </div>
