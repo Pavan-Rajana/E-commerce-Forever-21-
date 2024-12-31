@@ -22,6 +22,9 @@ const ShopContextProvider = (props) => {
             toast.error("Select Product Size") // Display error toast to user
             return // Exit the function if no size is selected
         }
+        if (size) {
+            toast.success("added to cart")
+        }
         // Step 3: Check if the item already exists in the cart.
         if (cartData[itemId]) {
             // Step 4: If the item exists, check if the selected size already exists for that item.
