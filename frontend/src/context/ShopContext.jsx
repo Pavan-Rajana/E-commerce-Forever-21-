@@ -20,8 +20,8 @@ const ShopContextProvider = (props) => {
 
         //Check if size is provided. If not, show an error and exit.
         if (!size) {
-            toast.error("Select Product Size") // Display error toast to user
-            return // Exit the function if no size is selected
+            toast.error("Select Product Size")
+            return
         }
         if (size) {
             toast.success("added to cart")
