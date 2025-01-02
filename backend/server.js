@@ -7,9 +7,11 @@ import userModel from "./models/userModel.js"
 import {userRouter} from "./routes/userRoute.js"
 import {productRouter} from "./routes/productRoute.js"
 
-// App Config
+// Initialize app
 const app = express()
 const port = process.env.PORT || 8000
+
+// Connect to database and Cloudinary
 connectDB()
 connectCloudinary()
 
@@ -17,7 +19,7 @@ connectCloudinary()
 app.use(express.json())
 app.use(cors())
 
-// APi endpoints
+// API endpoints
 app.use("/api/user", userRouter)
 app.use("/api/product", productRouter)
 
@@ -25,6 +27,5 @@ app.get("/", (req, res) => {
 	res.send("API working")
 })
 
-app.listen(port, () => {
-	console.log("Server Listening")
-})
+// Export as a serverless function for Vercel
+export default app

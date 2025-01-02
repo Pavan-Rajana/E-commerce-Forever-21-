@@ -9,3 +9,6 @@ export {default as stripe} from "stripe"
 export {default as razorpay} from "razorpay"
 export {default as validator} from "validator"
 export {default as bcrypt} from "bcrypt"
+import express from "express"
+import cors from "cors"
+export {express, cors}
