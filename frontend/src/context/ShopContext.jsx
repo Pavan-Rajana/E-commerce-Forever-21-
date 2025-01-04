@@ -25,6 +25,7 @@ const ShopContextProvider = (props) => {
         }
         if (size) {
             toast.success("added to the cart")
+            return
         }
         //Check if the item already exists in the cart.
         if (cartData[itemId]) {
